@@ -101,7 +101,7 @@ hold on
 %for i = 1:4
     %y = fft(clean_table.EXGChannel0);
 
-    NFFT = 4096;
+    NFFT = 512;
     NOVERLAP = NFFT/2;
     WIN = hamming(NFFT);
     [P,F] = pwelch(clean_table.EXGChannel0,WIN,NOVERLAP,NFFT,fs);
@@ -109,7 +109,8 @@ hold on
     figure
     %plot(f,abs(y))
     plot(F,P)
+    xlim([0 40])
     xlabel('Frequency (Hz)')
     ylabel('Magnitude')
-    title('Magnitude')
+    title('Window 512')
 %end
